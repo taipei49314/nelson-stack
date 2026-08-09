@@ -6,7 +6,7 @@
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Status: living index](https://img.shields.io/badge/status-living%20index-orange.svg)](#what-this-repo-is)
-[![Repos: 18](https://img.shields.io/badge/repos-18-blue.svg)](#repo-map)
+[![Project repos: 17](https://img.shields.io/badge/project%20repos-17-blue.svg)](#repo-map)
 
 This is not a portfolio. Each repo here earns its place by either (a) implementing
 a piece of the AI-safety-audit stack, or (b) being the tool the audit stack
@@ -19,9 +19,12 @@ that harness.
 ## What this repo is
 
 A **living index**. Not a monorepo. Not a curated list. It exists so that the
-relationship between the 18 repos is legible in one read, and so that anyone
-auditing Nelson's work can navigate from the principles down to the evidence
-in one pass.
+relationship between the 17 linked project repos is legible in one read, and
+so that anyone auditing Nelson's work can navigate from the principles down to
+the evidence in one pass.
+
+Last reconciled against GitHub repository, archive, release, and CI metadata:
+**2026-08-09**.
 
 The headline principle across everything here:
 
@@ -94,7 +97,7 @@ on each repo are authoritative; this map is secondary.
 | [`stateweaver`](https://github.com/taipei49314/stateweaver) | Python | Verifier-side audit: deterministic replays, oracle verdicts, signed evidence. |
 | [`tomorrowci`](https://github.com/taipei49314/tomorrowci) · [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) | Rust | Time-side audit: dependency / runtime breakage forecasting. |
 | [`greenwash`](https://github.com/taipei49314/greenwash) | Python | Diff-level detector for AI agent tampering with verification layers. |
-| [`persona-consistency-checker`](https://github.com/taipei49314/persona-consistency-checker) | Python | PersonaChain — checking persona drift under adversarial prompts. |
+| [`persona-consistency-checker`](https://github.com/taipei49314/persona-consistency-checker) | Python | **Archived historical prototype.** PersonaChain experiments for persona drift under adversarial prompts. |
 | [`null-city`](https://github.com/taipei49314/null-city) | TypeScript | Deterministic, partially observable crisis-response sandbox for agent eval. |
 | [`NormShift`](https://github.com/taipei49314/NormShift) | Python | Evidence-backed semantic diff for technical standards (M0 local HTML slice). |
 
@@ -104,12 +107,13 @@ on each repo are authoritative; this map is secondary.
 |---|---|---|
 | [`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) | TypeScript / Electron | Personal AI coding IDE; timeline as backbone; reversible sessions. Powers the audit loop locally. |
 | [`md-brain`](https://github.com/taipei49314/md-brain) | Python | Model-independent continuity runtime for AI memory. |
+| [`github-radar`](https://github.com/taipei49314/github-radar) | Python | GitHub research with measured uncertainty; can submit hashed findings to Frontier Atlas. |
 | [`receiptradar`](https://github.com/taipei49314/receiptradar) | Rust | Local receipt → ledger CLI. No cloud, no account. |
 | [`nelson-release-studio`](https://github.com/taipei49314/nelson-release-studio) | Python | Music creation, asset management, and release workbench — Windows-first. |
-| [`tw-stock-lab`](https://github.com/taipei49314/tw-stock-lab) | Python | Local TW stock research: K-line, industries, signals, local Ollama interpretation. *Research simulation, not investment advice.* |
+| [`tw-stock-lab`](https://github.com/taipei49314/tw-stock-lab) | Python | **Archived legacy prototype.** Local TW stock research; superseded in active work by TradingAgents-TW. *Research simulation, not investment advice.* |
 | [`aurora`](https://github.com/taipei49314/aurora) | Python | Finds unnamed industries from evidence — deterministic, no LLM at runtime, no stock tips. |
 | [`FutureShow-pet`](https://github.com/taipei49314/FutureShow-pet) | Python | Personal fork of HKUDS/FutureShow: local desktop pet (Taiwan news + GitHub AI-repo tracker) on Ollama / Qwen. |
-| [`universe-explorer`](https://github.com/taipei49314/universe-explorer) | Python | Epistemically honest science knowledge system — separates known from unknown. |
+| [`universe-explorer`](https://github.com/taipei49314/universe-explorer) | Python | **Archived proof of concept.** Epistemically honest science system separating known from unknown. |
 
 ---
 
@@ -155,8 +159,8 @@ This index repo is itself pre-release. Specifically:
   its own README states otherwise
   ([`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) v0.2.0
   has an external audit with a NO-GO verdict, which is kept on the README).
-- Stars and adoption are zero across the stack. This is expected for
-  pre-release work that is not yet seeking users.
+- External adoption is still minimal and is not used as a quality claim. Stars,
+  downloads, and README assertions do not replace reproducible evidence.
 
 What you can rely on: every link above resolves to a real repo, every repo's
 README states its own status honestly, and the principles above are
