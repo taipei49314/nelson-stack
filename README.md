@@ -4,7 +4,7 @@
 > The connective tissue across the repos Nelson ships under
 > [`taipei49314`](https://github.com/taipei49314).
 
-[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![Licenses: per repo](https://img.shields.io/badge/licenses-per%20repo-lightgrey.svg)](#license)
 [![Status: living index](https://img.shields.io/badge/status-living%20index-orange.svg)](#what-this-repo-is)
 [![Project repos: 21](https://img.shields.io/badge/project%20repos-21-blue.svg)](#repo-map)
 
@@ -13,6 +13,9 @@ a piece of the AI-safety-audit stack, or (b) being the tool the audit stack
 itself was built with. Nothing ships here that a reproducible harness has not
 produced on a clean checkout. Nothing claims a status it has not held under
 that harness.
+
+![Terminal attach session](docs/attach.gif)
+![Audit loop with honest gaps](docs/audit-loop.gif)
 
 ---
 
@@ -215,6 +218,24 @@ not.
 
 ## License
 
-Apache-2.0. Each repo in the stack carries its own license; the audit-stack
-repos are uniformly Apache-2.0, the local-first tools are a mix of Apache-2.0
-and MIT — see each repo's `LICENSE`.
+This index repo is documentation only. Its own files are Apache-2.0.
+
+**Linked project repos are not uniformly licensed.** A public repo is not a
+grant of rights. Read each repo's `LICENSE` and README.
+
+| Repo | Current public license signal |
+|---|---|
+| [`trust-meter`](https://github.com/taipei49314/trust-meter) | README says MIT; no `LICENSE` file in tree, so GitHub does not classify it |
+| [`phaseledger`](https://github.com/taipei49314/phaseledger) | Apache-2.0 |
+| [`greenwash`](https://github.com/taipei49314/greenwash) | Apache-2.0 |
+| [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | Apache-2.0 |
+| [`stateweaver`](https://github.com/taipei49314/stateweaver) | Apache-2.0 |
+| [`tomorrowci`](https://github.com/taipei49314/tomorrowci) · [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) | Apache-2.0 |
+| [`unasked`](https://github.com/taipei49314/unasked) | Publicly readable; copyright reserved; **not** an open-source license |
+| [`smallestlie`](https://github.com/taipei49314/smallestlie) | MIT |
+| [`null-city`](https://github.com/taipei49314/null-city) | MIT |
+| [`NormShift`](https://github.com/taipei49314/NormShift) | Apache-2.0 |
+| Local-first tools | Mix of Apache-2.0 and MIT; see each repo |
+
+Archived or private repos may differ. This table is a reconciliation, not a
+license grant.
