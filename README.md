@@ -6,7 +6,7 @@
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Status: living index](https://img.shields.io/badge/status-living%20index-orange.svg)](#what-this-repo-is)
-[![Project repos: 17](https://img.shields.io/badge/project%20repos-17-blue.svg)](#repo-map)
+[![Project repos: 21](https://img.shields.io/badge/project%20repos-21-blue.svg)](#repo-map)
 
 This is not a portfolio. Each repo here earns its place by either (a) implementing
 a piece of the AI-safety-audit stack, or (b) being the tool the audit stack
@@ -19,12 +19,12 @@ that harness.
 ## What this repo is
 
 A **living index**. Not a monorepo. Not a curated list. It exists so that the
-relationship between the 17 linked project repos is legible in one read, and
+relationship between the 21 linked project repos is legible in one read, and
 so that anyone auditing Nelson's work can navigate from the principles down to
 the evidence in one pass.
 
 Last reconciled against GitHub repository, archive, release, and CI metadata:
-**2026-08-09**.
+**2026-08-11**.
 
 The headline principle across everything here:
 
@@ -41,46 +41,52 @@ operating principle of every other repo on this page.
 ## The core: AI safety audit
 
 Nelson's primary research target is **how to audit an AI-driven system in a way
-that the system itself cannot fake**. The full stack breaks into six audit
-questions; each repo answers one or more of them, and the questions line up
-with `RepoPassport`'s six questions.
+that the system itself cannot fake**. Claims are not trusted until measured.
+The active front of the stack is therefore measurer-first: score the checkout,
+then refuse unmeasured phase advances, then run the six audit questions.
 
 | # | Audit question | Primary repo | Supporting repos |
 |---|---|---|---|
-| 1 | Did the declared journey **work**? | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | — |
+| 0 | What does the checkout **score** from local evidence? | [`trust-meter`](https://github.com/taipei49314/trust-meter) | [`phaseledger`](https://github.com/taipei49314/phaseledger) (fresh `PASS` required to advance) |
+| 0b | Can this phase **advance** without a measurer verdict? | [`phaseledger`](https://github.com/taipei49314/phaseledger) | [`trust-meter`](https://github.com/taipei49314/trust-meter) |
+| 1 | Did the declared journey **work**? | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | [`unasked`](https://github.com/taipei49314/unasked) (non-certifying investigation) |
 | 2 | Did the workload stay within its declared **capabilities**? | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | [`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) (capability token bridge) |
 | 3 | Was the result **reproducible**? | [`stateweaver`](https://github.com/taipei49314/stateweaver) | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) (deterministic plans) |
 | 4 | Was **cleanup** complete? | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | [`stateweaver`](https://github.com/taipei49314/stateweaver) (reality replay) |
 | 5 | What **evidence** exists, and who signed it? | [`stateweaver`](https://github.com/taipei49314/stateweaver) | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) (attestation bundles) |
 | 6 | Is that evidence still **current**? | [`tomorrowci`](https://github.com/taipei49314/tomorrowci) · [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) (verdict staleness) |
 
-`RepoPassport` answers questions 1, 2, and 4 — the *workload-side* invariants
-(capability conformance, cleanup, declared journey). `stateweaver` answers
-questions 3 and 5 — the *verifier-side* invariants (reproducibility of the
-oracle, signed evidence of the finding). `tomorrowci` answers question 6 —
-*will this evidence still be valid tomorrow?* — by forecasting dependency /
-runtime breakage.
+`trust-meter` and `phaseledger` sit in front of the six questions: score first,
+advance only on a fresh deterministic `PASS`. `RepoPassport` answers questions
+1, 2, and 4 — the *workload-side* invariants. `stateweaver` answers questions
+3 and 5 — the *verifier-side* invariants. `tomorrowci` answers question 6 —
+*will this evidence still be valid tomorrow?*
 
 ### A worked example
 
 Suppose an agent makes CI green by weakening a test. The audit chain is:
 
-1. [`greenwash`](https://github.com/taipei49314/greenwash) **detects** the
+1. [`trust-meter`](https://github.com/taipei49314/trust-meter) **scores** the
+   checkout from local evidence. [`phaseledger`](https://github.com/taipei49314/phaseledger)
+   **refuses** a phase advance unless that measure is a fresh `PASS`.
+2. [`greenwash`](https://github.com/taipei49314/greenwash) **detects** the
    tampering at the diff level — assertion strength weakened, golden file
    rewritten, CI runner script quieted. Zero LLM, zero network, byte-identical
    verdict.
-2. [`RepoPassport`](https://github.com/taipei49314/RepoPassport) **re-runs the
+3. [`RepoPassport`](https://github.com/taipei49314/RepoPassport) **re-runs the
    declared scenario** in a sandbox where the workload cannot self-judge, and
    produces a structured verdict (functional / capability / cleanup).
-3. [`stateweaver`](https://github.com/taipei49314/stateweaver) **replays the
+4. [`stateweaver`](https://github.com/taipei49314/stateweaver) **replays the
    finding** against a clean root and demands the patched build blocks the
    same path; only then does `SYNTHETIC_REPRODUCED` advance.
-4. [`tomorrowci`](https://github.com/taipei49314/tomorrowci) **forecasts** the
+5. [`tomorrowci`](https://github.com/taipei49314/tomorrowci) **forecasts** the
    earliest concrete breakage horizon — the moment the patched build's
    dependencies or runtime stop supporting the verification path.
 
-A finding that survives all four stages is publishable. Any stage that fails
-must be re-run from the previous stage's clean root.
+A finding that survives the chain is publishable. Any stage that fails
+must be re-run from the previous stage's clean root. `smallestlie` is the
+authorized adversarial complement: find the smallest lie the repo still
+accepts.
 
 ---
 
@@ -93,10 +99,14 @@ on each repo are authoritative; this map is secondary.
 
 | Repo | Language | Role in the stack |
 |---|---|---|
+| [`trust-meter`](https://github.com/taipei49314/trust-meter) | Python | Measure-first scorer. No release; claims are not trusted until measured. |
+| [`phaseledger`](https://github.com/taipei49314/phaseledger) | Python | Phase ledger. Advance only on a fresh deterministic measurer `PASS`. |
 | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | Go | Workload-side audit: capabilities, cleanup, attestation bundles. |
 | [`stateweaver`](https://github.com/taipei49314/stateweaver) | Python | Verifier-side audit: deterministic replays, oracle verdicts, signed evidence. |
 | [`tomorrowci`](https://github.com/taipei49314/tomorrowci) · [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) | Rust | Time-side audit: dependency / runtime breakage forecasting. |
 | [`greenwash`](https://github.com/taipei49314/greenwash) | Python | Diff-level detector for AI agent tampering with verification layers. |
+| [`unasked`](https://github.com/taipei49314/unasked) | Python | Evidence-gated repository investigation; non-certifying alpha. |
+| [`smallestlie`](https://github.com/taipei49314/smallestlie) | Python | Authorized adversarial harness: smallest lie a repo still accepts. |
 | [`persona-consistency-checker`](https://github.com/taipei49314/persona-consistency-checker) | Python | **Archived historical prototype.** PersonaChain experiments for persona drift under adversarial prompts. |
 | [`null-city`](https://github.com/taipei49314/null-city) | TypeScript | Deterministic, partially observable crisis-response sandbox for agent eval. |
 | [`NormShift`](https://github.com/taipei49314/NormShift) | Python | Evidence-backed semantic diff for technical standards (M0 local HTML slice). |
@@ -173,16 +183,22 @@ the principle was not yet met.
 
 If you are auditing Nelson's work, the recommended reading order is:
 
-1. [`RepoPassport`](https://github.com/taipei49314/RepoPassport) — for the
+1. [`trust-meter`](https://github.com/taipei49314/trust-meter) and
+   [`phaseledger`](https://github.com/taipei49314/phaseledger) — measure
+   first; no phase advance without a fresh `PASS`. Neither has a GitHub
+   Release yet.
+2. [`RepoPassport`](https://github.com/taipei49314/RepoPassport) — for the
    workload-side invariants and the attestation model.
-2. [`stateweaver`](https://github.com/taipei49314/stateweaver) — for the
+3. [`stateweaver`](https://github.com/taipei49314/stateweaver) — for the
    verifier-side model (state before chat, reality as final oracle).
-3. [`greenwash`](https://github.com/taipei49314/greenwash) — for a concrete
+4. [`greenwash`](https://github.com/taipei49314/greenwash) — for a concrete
    worked example of how a single detected failure is reported.
-4. [`tomorrowci`](https://github.com/taipei49314/tomorrowci) ·
+5. [`tomorrowci`](https://github.com/taipei49314/tomorrowci) ·
    [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) — for
-   how time-horizon forecasts are produced.
-5. [`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) — for
+   how time-horizon forecasts are produced. GitHub “Latest” on `tomorrowci`
+   still points at a rejected historical tag; measured lab work is in
+   `tomorrowci-lab`.
+6. [`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) — for
    the developer-facing surface where the audit loop is actually run.
 
 If you are using Nelson's work, start with the `quickstart` in the repo that
