@@ -6,7 +6,7 @@
 
 [![Licenses: per repo](https://img.shields.io/badge/licenses-per%20repo-lightgrey.svg)](#license)
 [![Status: living index](https://img.shields.io/badge/status-living%20index-orange.svg)](#what-this-repo-is)
-[![Project repos: 21](https://img.shields.io/badge/project%20repos-21-blue.svg)](#repo-map)
+[![Project repos: 27](https://img.shields.io/badge/project%20repos-27-blue.svg)](#repo-map)
 
 This is not a portfolio. Each repo here earns its place by either (a) implementing
 a piece of the AI-safety-audit stack, or (b) being the tool the audit stack
@@ -22,12 +22,12 @@ that harness.
 ## What this repo is
 
 A **living index**. Not a monorepo. Not a curated list. It exists so that the
-relationship between the 21 linked project repos is legible in one read, and
+relationship between the linked project repos is legible in one read, and
 so that anyone auditing Nelson's work can navigate from the principles down to
 the evidence in one pass.
 
 Last reconciled against GitHub repository, archive, release, and CI metadata:
-**2026-08-11**.
+**2026-08-12**.
 
 The headline principle across everything here:
 
@@ -52,6 +52,7 @@ then refuse unmeasured phase advances, then run the six audit questions.
 |---|---|---|---|
 | 0 | What does the checkout **score** from local evidence? | [`trust-meter`](https://github.com/taipei49314/trust-meter) | [`phaseledger`](https://github.com/taipei49314/phaseledger) (fresh `PASS` required to advance) |
 | 0b | Can this phase **advance** without a measurer verdict? | [`phaseledger`](https://github.com/taipei49314/phaseledger) | [`trust-meter`](https://github.com/taipei49314/trust-meter) |
+| 0c | Did a pre-registered decision **beat chance**? | [`nullbench`](https://github.com/taipei49314/nullbench) | [`branchback`](https://github.com/taipei49314/branchback) (belief-at-the-time replay) |
 | 1 | Did the declared journey **work**? | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | [`unasked`](https://github.com/taipei49314/unasked) (non-certifying investigation) |
 | 2 | Did the workload stay within its declared **capabilities**? | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | [`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) (capability token bridge) |
 | 3 | Was the result **reproducible**? | [`stateweaver`](https://github.com/taipei49314/stateweaver) | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) (deterministic plans) |
@@ -60,10 +61,11 @@ then refuse unmeasured phase advances, then run the six audit questions.
 | 6 | Is that evidence still **current**? | [`tomorrowci`](https://github.com/taipei49314/tomorrowci) · [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) (verdict staleness) |
 
 `trust-meter` and `phaseledger` sit in front of the six questions: score first,
-advance only on a fresh deterministic `PASS`. `RepoPassport` answers questions
-1, 2, and 4 — the *workload-side* invariants. `stateweaver` answers questions
-3 and 5 — the *verifier-side* invariants. `tomorrowci` answers question 6 —
-*will this evidence still be valid tomorrow?*
+advance only on a fresh deterministic `PASS`. `nullbench` asks whether a
+pre-registered decision beat chance without backfill. `RepoPassport` answers
+questions 1, 2, and 4 — the *workload-side* invariants. `stateweaver` answers
+questions 3 and 5 — the *verifier-side* invariants. `tomorrowci` answers
+question 6 — *will this evidence still be valid tomorrow?*
 
 ### A worked example
 
@@ -89,7 +91,8 @@ Suppose an agent makes CI green by weakening a test. The audit chain is:
 A finding that survives the chain is publishable. Any stage that fails
 must be re-run from the previous stage's clean root. `smallestlie` is the
 authorized adversarial complement: find the smallest lie the repo still
-accepts.
+accepts. `nullbench` is the chance-baseline complement: pre-register the
+claim, then score it against chance — never backfill.
 
 ---
 
@@ -104,12 +107,15 @@ on each repo are authoritative; this map is secondary.
 |---|---|---|
 | [`trust-meter`](https://github.com/taipei49314/trust-meter) | Python | Measure-first scorer. No release; claims are not trusted until measured. |
 | [`phaseledger`](https://github.com/taipei49314/phaseledger) | Python | Phase ledger. Advance only on a fresh deterministic measurer `PASS`. |
+| [`nullbench`](https://github.com/taipei49314/nullbench) | Python | Pre-register decisions; score against chance; never backfill. [`v0.7.0`](https://github.com/taipei49314/nullbench/releases/tag/v0.7.0). |
 | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | Go | Workload-side audit: capabilities, cleanup, attestation bundles. |
 | [`stateweaver`](https://github.com/taipei49314/stateweaver) | Python | Verifier-side audit: deterministic replays, oracle verdicts, signed evidence. |
-| [`tomorrowci`](https://github.com/taipei49314/tomorrowci) · [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) | Rust | Time-side audit: dependency / runtime breakage forecasting. |
-| [`greenwash`](https://github.com/taipei49314/greenwash) | Python | Diff-level detector for AI agent tampering with verification layers. |
-| [`unasked`](https://github.com/taipei49314/unasked) | Python | Evidence-gated repository investigation; non-certifying alpha. |
+| [`tomorrowci`](https://github.com/taipei49314/tomorrowci) · [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) | Rust | Time-side audit: dependency / runtime breakage forecasting. Measured lab tag: [`v0.1.1-alpha.2`](https://github.com/taipei49314/tomorrowci-lab/releases/tag/v0.1.1-alpha.2); GitHub “Latest” on both still points at a rejected historical tag. |
+| [`greenwash`](https://github.com/taipei49314/greenwash) | Python | Diff-level detector for AI agent tampering with verification layers. [`v0.1.23`](https://github.com/taipei49314/greenwash/releases/tag/v0.1.23). |
+| [`unasked`](https://github.com/taipei49314/unasked) | Python | Evidence-gated repository investigation; non-certifying alpha. [`v0.2.1`](https://github.com/taipei49314/unasked/releases/tag/v0.2.1). |
 | [`smallestlie`](https://github.com/taipei49314/smallestlie) | Python | Authorized adversarial harness: smallest lie a repo still accepts. |
+| [`branchback`](https://github.com/taipei49314/branchback) | TypeScript | Local-first decision replay lab — belief-at-the-time vs knowledge-now. [`v2.0.0`](https://github.com/taipei49314/branchback/releases/tag/v2.0.0). |
+| [`constraint-deck`](https://github.com/taipei49314/constraint-deck) | Python | Session-first authorial constraint deck; measure first; contract over vibes. |
 | [`persona-consistency-checker`](https://github.com/taipei49314/persona-consistency-checker) | Python | **Archived historical prototype.** PersonaChain experiments for persona drift under adversarial prompts. |
 | [`null-city`](https://github.com/taipei49314/null-city) | TypeScript | Deterministic, partially observable crisis-response sandbox for agent eval. |
 | [`NormShift`](https://github.com/taipei49314/NormShift) | Python | Evidence-backed semantic diff for technical standards (M0 local HTML slice). |
@@ -123,10 +129,14 @@ on each repo are authoritative; this map is secondary.
 | [`github-radar`](https://github.com/taipei49314/github-radar) | Python | GitHub research with measured uncertainty; can submit hashed findings to Frontier Atlas. |
 | [`receiptradar`](https://github.com/taipei49314/receiptradar) | Rust | Local receipt → ledger CLI. No cloud, no account. |
 | [`nelson-release-studio`](https://github.com/taipei49314/nelson-release-studio) | Python | Music creation, asset management, and release workbench — Windows-first. |
-| [`tw-stock-lab`](https://github.com/taipei49314/tw-stock-lab) | Python | **Archived legacy prototype.** Local TW stock research; superseded in active work by TradingAgents-TW. *Research simulation, not investment advice.* |
+| [`music-lab`](https://github.com/taipei49314/music-lab) | Python | Deterministic local music toolkit; analysis first; no cloud account. |
+| [`tw-stock-lab`](https://github.com/taipei49314/tw-stock-lab) | Python | Active local TW stock research lab ([`v0.2.0`](https://github.com/taipei49314/tw-stock-lab/releases/tag/v0.2.0)). *Research simulation, not investment advice.* |
 | [`aurora`](https://github.com/taipei49314/aurora) | Python | Finds unnamed industries from evidence — deterministic, no LLM at runtime, no stock tips. |
 | [`FutureShow-pet`](https://github.com/taipei49314/FutureShow-pet) | Python | Personal fork of HKUDS/FutureShow: local desktop pet (Taiwan news + GitHub AI-repo tracker) on Ollama / Qwen. |
-| [`universe-explorer`](https://github.com/taipei49314/universe-explorer) | Python | **Archived proof of concept.** Epistemically honest science system separating known from unknown. |
+| [`universe-explorer`](https://github.com/taipei49314/universe-explorer) | Python | Epistemically honest science knowledge system — separates known from unknown. |
+| [`why-ledger`](https://github.com/taipei49314/why-ledger) | Docs | Why Ledger / 依據本 — justified sovereign decisions (WJSD). Documentation-first. |
+| [`editorial-doll-engineering-preview`](https://github.com/taipei49314/editorial-doll-engineering-preview) | TypeScript | Public M0–M3 engineering preview of a deterministic editorial styling engine. |
+| [`vibe-oracle`](https://github.com/taipei49314/vibe-oracle) | TypeScript | **Explicit anti-evidence foil.** Admits the theater; pure vibe, not evidence. |
 
 ---
 
@@ -174,6 +184,9 @@ This index repo is itself pre-release. Specifically:
   has an external audit with a NO-GO verdict, which is kept on the README).
 - External adoption is still minimal and is not used as a quality claim. Stars,
   downloads, and README assertions do not replace reproducible evidence.
+- Some public releases are marked prerelease and therefore have no GitHub
+  “Latest” badge even though a release tag exists (`md-brain`, `github-radar`,
+  `FutureShow-pet`, `null-city`). That is intentional honesty, not absence.
 
 What you can rely on: every link above resolves to a real repo, every repo's
 README states its own status honestly, and the principles above are
@@ -190,18 +203,20 @@ If you are auditing Nelson's work, the recommended reading order is:
    [`phaseledger`](https://github.com/taipei49314/phaseledger) — measure
    first; no phase advance without a fresh `PASS`. Neither has a GitHub
    Release yet.
-2. [`RepoPassport`](https://github.com/taipei49314/RepoPassport) — for the
+2. [`nullbench`](https://github.com/taipei49314/nullbench) — for chance
+   baselines and pre-registered decision scoring.
+3. [`RepoPassport`](https://github.com/taipei49314/RepoPassport) — for the
    workload-side invariants and the attestation model.
-3. [`stateweaver`](https://github.com/taipei49314/stateweaver) — for the
+4. [`stateweaver`](https://github.com/taipei49314/stateweaver) — for the
    verifier-side model (state before chat, reality as final oracle).
-4. [`greenwash`](https://github.com/taipei49314/greenwash) — for a concrete
+5. [`greenwash`](https://github.com/taipei49314/greenwash) — for a concrete
    worked example of how a single detected failure is reported.
-5. [`tomorrowci`](https://github.com/taipei49314/tomorrowci) ·
+6. [`tomorrowci`](https://github.com/taipei49314/tomorrowci) ·
    [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) — for
-   how time-horizon forecasts are produced. GitHub “Latest” on `tomorrowci`
-   still points at a rejected historical tag; measured lab work is in
-   `tomorrowci-lab`.
-6. [`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) — for
+   how time-horizon forecasts are produced. GitHub “Latest” on both still
+   points at a rejected historical tag; measured lab work is tagged
+   `v0.1.1-alpha.2` on `tomorrowci-lab`.
+7. [`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) — for
    the developer-facing surface where the audit loop is actually run.
 
 If you are using Nelson's work, start with the `quickstart` in the repo that
@@ -227,6 +242,7 @@ grant of rights. Read each repo's `LICENSE` and README.
 |---|---|
 | [`trust-meter`](https://github.com/taipei49314/trust-meter) | README says MIT; no `LICENSE` file in tree, so GitHub does not classify it |
 | [`phaseledger`](https://github.com/taipei49314/phaseledger) | Apache-2.0 |
+| [`nullbench`](https://github.com/taipei49314/nullbench) | MIT |
 | [`greenwash`](https://github.com/taipei49314/greenwash) | Apache-2.0 |
 | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | Apache-2.0 |
 | [`stateweaver`](https://github.com/taipei49314/stateweaver) | Apache-2.0 |
