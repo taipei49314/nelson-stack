@@ -79,14 +79,20 @@ evidence still be valid tomorrow?*
 ### Evidence Workbench: control plane, not authority
 
 [`evidence-workbench`](https://github.com/taipei49314/evidence-workbench) is the
-read-only control plane and exact-artifact transport across the twelve active
-cells below. It pins source and runtime candidates, records native envelopes,
-and moves exact bytes plus digests between cells. It does **not** certify a
-workload, reinterpret a native status, or synthesize an aggregate `PASS`.
+authority-preserving control plane plus artifact/execution shell that catalogs
+the twelve active cells below. It pins source and runtime candidates, imports
+exact artifacts, records native envelopes, and executes only separately
+admitted operations whose required boundary is implemented. EWB itself is not
+globally read-only. The NelsonCode integration is a deliberately read-only
+bridge limited to catalog observations. Exact bytes and digests move between
+cells only through separately admitted handoffs; registry presence alone does
+not perform a handoff. EWB does **not** certify a workload, reinterpret a native
+status, or synthesize an aggregate `PASS`.
 
 An arrow means “the next cell may independently admit this exact artifact.” It
-does not mean that the upstream cell granted authority to the downstream one,
-and it does not force every investigation through one linear pipeline.
+does not claim that bytes have already moved, that the upstream cell granted
+authority to the downstream one, or that every investigation must pass through
+one linear pipeline.
 
 ```mermaid
 flowchart LR
