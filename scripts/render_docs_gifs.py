@@ -50,13 +50,14 @@ def save_gif(path: Path, frames: list[Image.Image], durations: list[int]) -> Non
 
 
 def render_attach() -> None:
-    width, height = 880, 360
+    width, height = 880, 400
     body_font = font(18)
     lines = [
         (FG, "$ phaseledger attach ."),
         (DIM, "session  7c1a   ./checkout"),
         (DIM, ""),
         (BLUE, "ports"),
+        (AMBER, "  walkaround       admission     unsigned     no VERIFIED"),
         (GREEN, "  trust-meter      observation   attached"),
         (AMBER, "  greenwash        detect        missing      INCOMPLETE"),
         (RED, "  tomorrowci-lab   freshness     blocked      NOT_RUN"),
@@ -86,6 +87,7 @@ def render_attach() -> None:
 def render_loop() -> None:
     width, height = 880, 220
     stages = [
+        ("ADMIT", "unsigned", AMBER),
         ("MEASURE", "observation", GREEN),
         ("GATE", "no advance", RED),
         ("DETECT", "INCOMPLETE", AMBER),
@@ -93,9 +95,9 @@ def render_loop() -> None:
         ("REPLAY", "no Reality", DIM),
         ("FORECAST", "BLOCKED", RED),
     ]
-    box_w, box_h = 124, 72
-    gap = 16
-    start_x = 24
+    box_w, box_h = 108, 72
+    gap = 10
+    start_x = 20
     top = 70
 
     frames: list[Image.Image] = []
