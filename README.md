@@ -76,6 +76,61 @@ chance without backfill. `RepoPassport` answers questions 1, 2, and 4 — the
 *verifier-side* invariants. `tomorrowci` answers question 6 — *will this
 evidence still be valid tomorrow?*
 
+### Evidence Workbench: control plane, not authority
+
+[`evidence-workbench`](https://github.com/taipei49314/evidence-workbench) is the
+read-only control plane and exact-artifact transport across the twelve active
+cells below. It pins source and runtime candidates, records native envelopes,
+and moves exact bytes plus digests between cells. It does **not** certify a
+workload, reinterpret a native status, or synthesize an aggregate `PASS`.
+
+An arrow means “the next cell may independently admit this exact artifact.” It
+does not mean that the upstream cell granted authority to the downstream one,
+and it does not force every investigation through one linear pipeline.
+
+```mermaid
+flowchart LR
+    EWB["Evidence Workbench<br/>control plane / transport"]
+
+    WA["01 walkaround<br/>session admission"]
+    CL["02 charterlock<br/>exam admission"]
+    TM["03 trust-meter<br/>advisory measure"]
+    PL["04 phaseledger<br/>freshness gate"]
+    NB["05 nullbench<br/>chance baseline"]
+
+    RP["06 RepoPassport<br/>workload invariants"]
+    GW["07 Greenwash<br/>concrete detector"]
+    SL["08 smallestlie<br/>authorized falsification"]
+    UA["09 Unasked<br/>non-certifying research"]
+    NS["10 NormShift<br/>domain-transfer branch"]
+
+    SW["11 StateWeaver<br/>replay / reality"]
+    TC["12 TomorrowCI Lab<br/>freshness horizon"]
+
+    EWB -. "exact pins + native envelopes" .-> WA
+    WA -->|"frozen session receipt"| CL
+    CL -->|"admitted exam artifact"| TM
+    TM -->|"native measure"| PL
+    PL -->|"selected branch"| NB
+    PL -->|"selected branch"| RP
+    PL -->|"selected branch"| GW
+    PL -->|"selected branch"| SL
+    PL -->|"selected branch"| UA
+    PL -->|"selected branch"| NS
+    NB -->|"preregistered score"| SW
+    RP -->|"attestation bundle"| SW
+    GW -->|"finding artifact"| SW
+    SL -->|"authorized finding"| SW
+    UA -->|"research evidence"| SW
+    NS -->|"domain evidence"| SW
+    SW -->|"replay evidence"| TC
+    TC -. "native freshness observation" .-> EWB
+```
+
+The workbench registry is allowed to be ahead of execution. A pinned cell whose
+interpreter, dependency closure, authorization contract, or containment is not
+bound remains `fail_closed`; catalog visibility is not execution readiness.
+
 ### A worked example
 
 Suppose an agent says done, writes its own exam, then makes CI green by
@@ -144,6 +199,7 @@ on each repo are authoritative; this map is secondary.
 
 | Repo | Language | What it does |
 |---|---|---|
+| [`evidence-workbench`](https://github.com/taipei49314/evidence-workbench) | Rust | Authority-preserving control plane: exact pins, native envelopes, and fail-closed artifact transport. Not a verifier and not an aggregate judge. |
 | [`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) | TypeScript / Electron | Personal AI coding IDE; timeline as backbone; reversible sessions. Powers the audit loop locally. |
 | [`md-brain`](https://github.com/taipei49314/md-brain) | Python | Model-independent continuity runtime for AI memory. |
 | [`github-radar`](https://github.com/taipei49314/github-radar) | Python | GitHub research with measured uncertainty; can submit hashed findings to Frontier Atlas. |
