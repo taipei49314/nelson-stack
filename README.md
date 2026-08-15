@@ -6,7 +6,7 @@
 
 [![Licenses: per repo](https://img.shields.io/badge/licenses-per%20repo-lightgrey.svg)](#license)
 [![Status: living index](https://img.shields.io/badge/status-living%20index-orange.svg)](#what-this-repo-is)
-[![Project repos: 30](https://img.shields.io/badge/project%20repos-30-blue.svg)](#repo-map)
+[![Active indexed project repos: 30](https://img.shields.io/badge/active%20indexed%20project%20repos-30-blue.svg)](#repo-map)
 
 This is not a portfolio. Each repo here earns its place by either (a) implementing
 a piece of the AI-safety-audit stack, or (b) being the tool the audit stack
@@ -27,7 +27,7 @@ so that anyone auditing Nelson's work can navigate from the principles down to
 the evidence in one pass.
 
 Last reconciled against GitHub repository, archive, release, and CI metadata:
-**2026-08-14**.
+**2026-08-15**.
 
 The headline principle across everything here:
 
@@ -180,6 +180,13 @@ claim, then score it against chance — never backfill.
 Every repo is pre-alpha or pre-release unless otherwise noted. Status badges
 on each repo are authoritative; this map is secondary.
 
+“Active indexed project repos” means public repositories owned by
+[`taipei49314`](https://github.com/taipei49314) that are explicitly listed in
+this map and whose GitHub `isArchived` flag is false. The count excludes this
+`nelson-stack` index and the `taipei49314` profile repository. The map currently
+contains 30 active projects plus one archived historical prototype; together
+with those two meta repositories, that reconciles to all 33 public owner repos.
+
 ### Audit stack (the core)
 
 | Repo | Language | Role in the stack |
@@ -192,7 +199,7 @@ on each repo are authoritative; this map is secondary.
 | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | Go | Workload-side audit: capabilities, cleanup, attestation bundles. Working `v1alpha1` slice; 37-row acceptance registry is machine-checked; observer coverage remains incomplete. No release. |
 | [`stateweaver`](https://github.com/taipei49314/stateweaver) | Python | Verifier-side audit: deterministic replays, oracle verdicts, signed evidence. Source-only pre-alpha; M6–M8 implementation gates exist; trusted Reality proof is not claimed. No release. |
 | [`tomorrowci`](https://github.com/taipei49314/tomorrowci) · [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) | Rust · Python | Time-side audit: dependency / runtime breakage forecasting. Newest lab prerelease: [`v0.2.0-alpha.1`](https://github.com/taipei49314/tomorrowci-lab/releases/tag/v0.2.0-alpha.1) (`CANDIDATE_ONLY_NOT_RELEASE_AUTHORIZED`). GitHub “Latest” on both still points at rejected [`v0.1.0-grok-session`](https://github.com/taipei49314/tomorrowci-lab/releases/tag/v0.1.0-grok-session). |
-| [`greenwash`](https://github.com/taipei49314/greenwash) | Python | Diff-level detector for AI agent tampering with verification layers. GitHub Latest: [`v0.1.24`](https://github.com/taipei49314/greenwash/releases/tag/v0.1.24). Tree is ahead of that tag. |
+| [`greenwash`](https://github.com/taipei49314/greenwash) | Python | Diff-level detector for AI agent tampering with verification layers. GitHub Latest: [`v0.1.41`](https://github.com/taipei49314/greenwash/releases/tag/v0.1.41). At the 2026-08-15 reconciliation, `main` was one README-only Action-pin commit ahead of that tag. |
 | [`unasked`](https://github.com/taipei49314/unasked) | Python | Evidence-gated repository investigation; non-certifying alpha. GitHub Latest: [`v0.4.0`](https://github.com/taipei49314/unasked/releases/tag/v0.4.0). Public result remains `M0_NOT_DEMONSTRATED`. |
 | [`smallestlie`](https://github.com/taipei49314/smallestlie) | Python | Authorized adversarial harness: smallest lie a repo still accepts. |
 | [`branchback`](https://github.com/taipei49314/branchback) | TypeScript | Local-first decision replay lab — belief-at-the-time vs knowledge-now. [`v2.0.0`](https://github.com/taipei49314/branchback/releases/tag/v2.0.0). |
@@ -301,7 +308,8 @@ If you are auditing Nelson's work, the recommended reading order is:
    verifier-side model (state before chat, reality as final oracle).
 6. [`greenwash`](https://github.com/taipei49314/greenwash) — for a concrete
    worked example of how a single detected failure is reported. GitHub
-   Latest is `v0.1.24`; later commits on `main` are not a release.
+   Latest is `v0.1.41`; at the 2026-08-15 reconciliation, `main` was one
+   README-only Action-pin commit ahead of that tag.
 7. [`tomorrowci`](https://github.com/taipei49314/tomorrowci) ·
    [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) — for
    how time-horizon forecasts are produced. GitHub “Latest” on both still
