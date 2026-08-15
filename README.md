@@ -58,7 +58,7 @@ audit questions.
 | 0b | Can this phase **advance** without a measurer verdict? | [`phaseledger`](https://github.com/taipei49314/phaseledger) | [`trust-meter`](https://github.com/taipei49314/trust-meter) |
 | 0c | Did a pre-registered decision **beat chance**? | [`nullbench`](https://github.com/taipei49314/nullbench) | [`branchback`](https://github.com/taipei49314/branchback) (belief-at-the-time replay) |
 | 1 | Did the declared journey **work**? | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | [`unasked`](https://github.com/taipei49314/unasked) (non-certifying investigation) |
-| 2 | Did the workload stay within its declared **capabilities**? | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | [`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) (capability token bridge) |
+| 2 | Did the workload stay within its declared **capabilities**? | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | — |
 | 3 | Was the result **reproducible**? | [`stateweaver`](https://github.com/taipei49314/stateweaver) | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) (deterministic plans) |
 | 4 | Was **cleanup** complete? | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | [`stateweaver`](https://github.com/taipei49314/stateweaver) (reality replay) |
 | 5 | What **evidence** exists, and who signed it? | [`stateweaver`](https://github.com/taipei49314/stateweaver) | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) (attestation bundles) |
@@ -84,10 +84,11 @@ the twelve active cells below. It pins source and runtime candidates, imports
 exact artifacts, records native envelopes, and executes only separately
 admitted operations whose required boundary is implemented. EWB itself is not
 globally read-only. The NelsonCode integration is a deliberately read-only
-bridge limited to catalog observations. Exact bytes and digests move between
-cells only through separately admitted handoffs; registry presence alone does
-not perform a handoff. EWB does **not** certify a workload, reinterpret a native
-status, or synthesize an aggregate `PASS`.
+catalog adapter, but it is optional and outside the audit mainline. It carries
+no authority handoff. Exact bytes and digests move between cells only through
+separately admitted handoffs; registry presence alone does not perform a
+handoff. EWB does **not** certify a workload, reinterpret a native status, or
+synthesize an aggregate `PASS`.
 
 An arrow means “the next cell may independently admit this exact artifact.” It
 does not claim that bytes have already moved, that the upstream cell granted
@@ -213,7 +214,7 @@ with those two meta repositories, that reconciles to all 33 public owner repos.
 | Repo | Language | What it does |
 |---|---|---|
 | [`evidence-workbench`](https://github.com/taipei49314/evidence-workbench) | Rust | Authority-preserving control plane: exact pins, native envelopes, and fail-closed artifact transport. Not a verifier and not an aggregate judge. |
-| [`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) | TypeScript / Electron | Personal AI coding IDE; timeline as backbone; reversible sessions. Powers the audit loop locally. |
+| [`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) | TypeScript / Electron | Off-mainline personal AI coding preview; timeline as backbone; reversible sessions. External security audit remains **NO-GO** for untrusted use. |
 | [`md-brain`](https://github.com/taipei49314/md-brain) | Python | Model-independent continuity runtime for AI memory. |
 | [`github-radar`](https://github.com/taipei49314/github-radar) | Python | GitHub research with measured uncertainty; can submit hashed findings to Frontier Atlas. |
 | [`receiptradar`](https://github.com/taipei49314/receiptradar) | Rust | Local receipt → ledger CLI. No cloud, no account. |
@@ -315,8 +316,11 @@ If you are auditing Nelson's work, the recommended reading order is:
    how time-horizon forecasts are produced. GitHub “Latest” on both still
    points at a rejected historical tag; the newest lab prerelease is
    `v0.2.0-alpha.1` and remains candidate-only.
-8. [`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) — for
-   the developer-facing surface where the audit loop is actually run.
+
+NelsonCode is deliberately not part of this audit reading order. It remains an
+active indexed project under local-first tools as an off-mainline personal
+preview; its optional EWB adapter is read-only catalog access, not an authority
+handoff.
 
 If you are using Nelson's work, start with the `quickstart` in the repo that
 matches your target question. The audit table above tells you which one.
