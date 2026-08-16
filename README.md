@@ -6,7 +6,7 @@
 
 [![Licenses: per repo](https://img.shields.io/badge/licenses-per%20repo-lightgrey.svg)](#license)
 [![Status: living index](https://img.shields.io/badge/status-living%20index-orange.svg)](#what-this-repo-is)
-[![Active indexed project repos: 30](https://img.shields.io/badge/active%20indexed%20project%20repos-30-blue.svg)](#repo-map)
+[![Active indexed project repos: 31](https://img.shields.io/badge/active%20indexed%20project%20repos-31-blue.svg)](#repo-map)
 
 This is not a portfolio. Each repo here earns its place by either (a) implementing
 a piece of the AI-safety-audit stack, or (b) being the tool the audit stack
@@ -27,7 +27,7 @@ so that anyone auditing Nelson's work can navigate from the principles down to
 the evidence in one pass.
 
 Last reconciled against GitHub repository, archive, release, and CI metadata:
-**2026-08-15**.
+**2026-08-16**.
 
 The headline principle across everything here:
 
@@ -185,8 +185,8 @@ on each repo are authoritative; this map is secondary.
 [`taipei49314`](https://github.com/taipei49314) that are explicitly listed in
 this map and whose GitHub `isArchived` flag is false. The count excludes this
 `nelson-stack` index and the `taipei49314` profile repository. The map currently
-contains 30 active projects plus one archived historical prototype; together
-with those two meta repositories, that reconciles to all 33 public owner repos.
+contains 31 active projects plus one archived historical prototype; together
+with those two meta repositories, that reconciles to all 34 public owner repos.
 
 ### Audit stack (the core)
 
@@ -194,13 +194,13 @@ with those two meta repositories, that reconciles to all 33 public owner repos.
 |---|---|---|
 | [`walkaround`](https://github.com/taipei49314/walkaround) | Python | Session admission kernel. Done without entry is `BYPASSED`. No release; receipts unsigned; no `VERIFIED`. |
 | [`charterlock`](https://github.com/taipei49314/charterlock) | Python | Exam-admission measurer. Same key writing and sitting the exam is `CHARTER_COLLAPSED`. No release; `independence_claim` is always `not_claimed`. |
-| [`trust-meter`](https://github.com/taipei49314/trust-meter) | Python | Measure-first scorer. No release; claims are not trusted until measured. |
+| [`trust-meter`](https://github.com/taipei49314/trust-meter) | Python | Measure-first scorer. Claims are not trusted until measured. GitHub Latest: [`v0.2.1`](https://github.com/taipei49314/trust-meter/releases/tag/v0.2.1). |
 | [`phaseledger`](https://github.com/taipei49314/phaseledger) | Python | Phase ledger. Advance only on a fresh deterministic measurer `PASS`. |
 | [`nullbench`](https://github.com/taipei49314/nullbench) | Python | Pre-register decisions; score against chance; never backfill. GitHub Latest: [`v0.7.0`](https://github.com/taipei49314/nullbench/releases/tag/v0.7.0). |
 | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | Go | Workload-side audit: capabilities, cleanup, attestation bundles. Working `v1alpha1` slice; 37-row acceptance registry is machine-checked; observer coverage remains incomplete. No release. |
 | [`stateweaver`](https://github.com/taipei49314/stateweaver) | Python | Verifier-side audit: deterministic replays, oracle verdicts, signed evidence. Source-only pre-alpha; M6–M8 implementation gates exist; trusted Reality proof is not claimed. No release. |
 | [`tomorrowci`](https://github.com/taipei49314/tomorrowci) · [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) | Rust · Python | Time-side audit: dependency / runtime breakage forecasting. Newest lab prerelease: [`v0.2.0-alpha.1`](https://github.com/taipei49314/tomorrowci-lab/releases/tag/v0.2.0-alpha.1) (`CANDIDATE_ONLY_NOT_RELEASE_AUTHORIZED`). GitHub “Latest” on both still points at rejected [`v0.1.0-grok-session`](https://github.com/taipei49314/tomorrowci-lab/releases/tag/v0.1.0-grok-session). |
-| [`greenwash`](https://github.com/taipei49314/greenwash) | Python | Diff-level detector for AI agent tampering with verification layers. GitHub Latest: [`v0.1.41`](https://github.com/taipei49314/greenwash/releases/tag/v0.1.41). At the 2026-08-15 reconciliation, `main` was one README-only Action-pin commit ahead of that tag. |
+| [`greenwash`](https://github.com/taipei49314/greenwash) | Python | Diff-level detector for AI agent tampering with verification layers. GitHub Latest: [`v0.1.42`](https://github.com/taipei49314/greenwash/releases/tag/v0.1.42). At the 2026-08-16 reconciliation, `main` was the `v0.1.42` release merge commit, content-identical to that tag. |
 | [`unasked`](https://github.com/taipei49314/unasked) | Python | Evidence-gated repository investigation; non-certifying alpha. GitHub Latest: [`v0.4.0`](https://github.com/taipei49314/unasked/releases/tag/v0.4.0). Public result remains `M0_NOT_DEMONSTRATED`. |
 | [`smallestlie`](https://github.com/taipei49314/smallestlie) | Python | Authorized adversarial harness: smallest lie a repo still accepts. |
 | [`branchback`](https://github.com/taipei49314/branchback) | TypeScript | Local-first decision replay lab — belief-at-the-time vs knowledge-now. [`v2.0.0`](https://github.com/taipei49314/branchback/releases/tag/v2.0.0). |
@@ -224,6 +224,7 @@ with those two meta repositories, that reconciles to all 33 public owner repos.
 | [`aurora`](https://github.com/taipei49314/aurora) | Python | Finds unnamed industries from evidence — deterministic, no LLM at runtime, no stock tips. |
 | [`FutureShow-pet`](https://github.com/taipei49314/FutureShow-pet) | Python | Personal fork of HKUDS/FutureShow: local desktop pet (Taiwan news + GitHub AI-repo tracker) on Ollama / Qwen. |
 | [`universe-explorer`](https://github.com/taipei49314/universe-explorer) | Python | Epistemically honest science knowledge system — separates known from unknown. |
+| [`cell-shift`](https://github.com/taipei49314/cell-shift) | TypeScript | CELL//SHIFT — deterministic 3D tissue simulation: change cell rules, watch tumor-like structure form. Explicitly not a biological model. No release. |
 | [`why-ledger`](https://github.com/taipei49314/why-ledger) | Docs | Why Ledger / 依據本 — justified sovereign decisions (WJSD). Documentation-first. |
 | [`editorial-doll-engineering-preview`](https://github.com/taipei49314/editorial-doll-engineering-preview) | TypeScript | Public M0–M3 engineering preview of a deterministic editorial styling engine. |
 | [`vibe-oracle`](https://github.com/taipei49314/vibe-oracle) | TypeScript | **Explicit anti-evidence foil.** Admits the theater; pure vibe, not evidence. |
@@ -299,8 +300,9 @@ If you are auditing Nelson's work, the recommended reading order is:
    verified work; `CHARTER_SPLIT` is not two humans.
 2. [`trust-meter`](https://github.com/taipei49314/trust-meter) and
    [`phaseledger`](https://github.com/taipei49314/phaseledger) — measure
-   first; no phase advance without a fresh `PASS`. Neither has a GitHub
-   Release yet.
+   first; no phase advance without a fresh `PASS`. `trust-meter` reached
+   [`v0.2.1`](https://github.com/taipei49314/trust-meter/releases/tag/v0.2.1);
+   `phaseledger` has no GitHub Release yet.
 3. [`nullbench`](https://github.com/taipei49314/nullbench) — for chance
    baselines and pre-registered decision scoring.
 4. [`RepoPassport`](https://github.com/taipei49314/RepoPassport) — for the
@@ -309,8 +311,8 @@ If you are auditing Nelson's work, the recommended reading order is:
    verifier-side model (state before chat, reality as final oracle).
 6. [`greenwash`](https://github.com/taipei49314/greenwash) — for a concrete
    worked example of how a single detected failure is reported. GitHub
-   Latest is `v0.1.41`; at the 2026-08-15 reconciliation, `main` was one
-   README-only Action-pin commit ahead of that tag.
+   Latest is `v0.1.42`; at the 2026-08-16 reconciliation, `main` was the
+   release merge commit, content-identical to that tag.
 7. [`tomorrowci`](https://github.com/taipei49314/tomorrowci) ·
    [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) — for
    how time-horizon forecasts are produced. GitHub “Latest” on both still
@@ -345,7 +347,7 @@ grant of rights. Read each repo's `LICENSE` and README.
 |---|---|
 | [`walkaround`](https://github.com/taipei49314/walkaround) | Apache-2.0 |
 | [`charterlock`](https://github.com/taipei49314/charterlock) | Apache-2.0 |
-| [`trust-meter`](https://github.com/taipei49314/trust-meter) | README says MIT; no `LICENSE` file in tree, so GitHub does not classify it |
+| [`trust-meter`](https://github.com/taipei49314/trust-meter) | MIT |
 | [`phaseledger`](https://github.com/taipei49314/phaseledger) | Apache-2.0 |
 | [`nullbench`](https://github.com/taipei49314/nullbench) | MIT |
 | [`greenwash`](https://github.com/taipei49314/greenwash) | Apache-2.0 |
