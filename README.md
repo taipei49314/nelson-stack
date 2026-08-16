@@ -199,7 +199,7 @@ with those two meta repositories, that reconciles to all 34 public owner repos.
 | [`nullbench`](https://github.com/taipei49314/nullbench) | Python | Pre-register decisions; score against chance; never backfill. GitHub Latest: [`v0.7.0`](https://github.com/taipei49314/nullbench/releases/tag/v0.7.0). |
 | [`RepoPassport`](https://github.com/taipei49314/RepoPassport) | Go | Workload-side audit: capabilities, cleanup, attestation bundles. Working `v1alpha1` slice; 37-row acceptance registry is machine-checked; observer coverage remains incomplete. No release. |
 | [`stateweaver`](https://github.com/taipei49314/stateweaver) | Python | Verifier-side audit: deterministic replays, oracle verdicts, signed evidence. Source-only pre-alpha; M6–M8 implementation gates exist; trusted Reality proof is not claimed. No release. |
-| [`tomorrowci`](https://github.com/taipei49314/tomorrowci) · [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) | Rust · Python | Time-side audit: dependency / runtime breakage forecasting. Newest lab prerelease: [`v0.2.0-alpha.1`](https://github.com/taipei49314/tomorrowci-lab/releases/tag/v0.2.0-alpha.1) (`CANDIDATE_ONLY_NOT_RELEASE_AUTHORIZED`). GitHub “Latest” on both still points at rejected [`v0.1.0-grok-session`](https://github.com/taipei49314/tomorrowci-lab/releases/tag/v0.1.0-grok-session). |
+| [`tomorrowci`](https://github.com/taipei49314/tomorrowci) · [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) | Rust · Python | Time-side audit: dependency / runtime breakage forecasting. Newest lab prerelease: [`v0.2.0-alpha.1`](https://github.com/taipei49314/tomorrowci-lab/releases/tag/v0.2.0-alpha.1) (`CANDIDATE_ONLY_NOT_RELEASE_AUTHORIZED`). Neither repo advertises a GitHub “Latest” release: the rejected [`v0.1.0-grok-session`](https://github.com/taipei49314/tomorrowci/releases/tag/v0.1.0-grok-session) tags are prerelease-marked historical evidence (the `tomorrowci` one carries orphan history with no common ancestor to `master`), and tags on both repos are ruleset-protected against update or deletion. |
 | [`greenwash`](https://github.com/taipei49314/greenwash) | Python | Diff-level detector for AI agent tampering with verification layers. GitHub Latest: [`v0.1.42`](https://github.com/taipei49314/greenwash/releases/tag/v0.1.42). At the 2026-08-16 reconciliation, `main` was the `v0.1.42` release merge commit, content-identical to that tag. |
 | [`unasked`](https://github.com/taipei49314/unasked) | Python | Evidence-gated repository investigation; non-certifying alpha. GitHub Latest: [`v0.4.0`](https://github.com/taipei49314/unasked/releases/tag/v0.4.0). Public result remains `M0_NOT_DEMONSTRATED`. |
 | [`smallestlie`](https://github.com/taipei49314/smallestlie) | Python | Authorized adversarial harness: smallest lie a repo still accepts. |
@@ -277,8 +277,8 @@ This index repo is itself pre-release. Specifically:
   downloads, and README assertions do not replace reproducible evidence.
 - Some public releases are marked prerelease and therefore have no GitHub
   “Latest” badge even though a release tag exists (`md-brain`, `github-radar`,
-  `FutureShow-pet`, `null-city`, `tomorrowci-lab` `v0.2.0-alpha.1`). That is
-  intentional honesty, not absence.
+  `FutureShow-pet`, `null-city`, `tomorrowci`, `tomorrowci-lab`
+  `v0.2.0-alpha.1`). That is intentional honesty, not absence.
 - `walkaround` and `charterlock` joined the map after the 2026-08-12
   reconciliation. They are pre-alpha admission cells, not later-stage
   verifiers.
@@ -315,9 +315,10 @@ If you are auditing Nelson's work, the recommended reading order is:
    release merge commit, content-identical to that tag.
 7. [`tomorrowci`](https://github.com/taipei49314/tomorrowci) ·
    [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) — for
-   how time-horizon forecasts are produced. GitHub “Latest” on both still
-   points at a rejected historical tag; the newest lab prerelease is
-   `v0.2.0-alpha.1` and remains candidate-only.
+   how time-horizon forecasts are produced. Neither repo advertises a
+   GitHub “Latest” release; the rejected historical tags are
+   prerelease-marked evidence, and the newest lab prerelease is
+   `v0.2.0-alpha.1`, still candidate-only.
 
 NelsonCode is deliberately not part of this audit reading order. It remains an
 active indexed project under local-first tools as an off-mainline personal
