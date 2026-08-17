@@ -9,10 +9,11 @@
 [![Active indexed project repos: 31](https://img.shields.io/badge/active%20indexed%20project%20repos-31-blue.svg)](#repo-map)
 
 This is not a portfolio. Each repo here earns its place by either (a) implementing
-a piece of the AI-safety-audit stack, or (b) being the tool the audit stack
-itself was built with. Nothing ships here that a reproducible harness has not
-produced on a clean checkout. Nothing claims a status it has not held under
-that harness.
+a piece of the AI-safety-audit stack, (b) being the tool the audit stack
+itself was built with, or (c) being a **public subject** the stack is pointed
+at. Subjects are not flagships. Nothing ships here that a reproducible harness
+has not produced on a clean checkout. Nothing claims a status it has not held
+under that harness.
 
 ![Terminal attach session](docs/attach.gif)
 ![Audit loop with honest gaps](docs/audit-loop.gif)
@@ -27,7 +28,7 @@ so that anyone auditing Nelson's work can navigate from the principles down to
 the evidence in one pass.
 
 Last reconciled against GitHub repository, archive, release, and CI metadata:
-**2026-08-16**.
+**2026-08-17**.
 
 The headline principle across everything here:
 
@@ -174,6 +175,31 @@ authorized adversarial complement: find the smallest lie the repo still
 accepts. `nullbench` is the chance-baseline complement: pre-register the
 claim, then score it against chance — never backfill.
 
+### First public subject
+
+The flagship is this spine. It is not a demonstration chamber.
+
+[`cell-shift`](https://github.com/taipei49314/cell-shift) (display name
+**CELL//SHIFT**) is the first CI-backed public subject the spine is pointed
+at. Spatial agent toy. Not a cancer model. Not a claim that the audit loop
+is finished.
+
+| What | Where |
+|---|---|
+| Frozen journey | [`JOURNEY.md`](https://github.com/taipei49314/cell-shift/blob/main/JOURNEY.md) — `npm test` → `npx tsc -b` → `npx vite build` → `npm run audit` |
+| Walkaround contract | [`journey/contract.json`](https://github.com/taipei49314/cell-shift/blob/main/journey/contract.json) |
+| Declared RepoPassport scenario | [`repo-passport.yml`](https://github.com/taipei49314/cell-shift/blob/main/repo-passport.yml) (`public-ci`) |
+| Host CI | [Actions](https://github.com/taipei49314/cell-shift/actions) |
+| External receipts | [`artifacts/spine/`](https://github.com/taipei49314/cell-shift/tree/main/artifacts/spine) |
+
+The subject's own test suite is a lock on chamber geometry. It is not
+admission, not an exam charter, and not a trust-meter score. First
+host-side spine pass (2026-08-17): walkaround `ADMITTED` with an empty
+organ set; trust-meter `100.0` is vacuous (no Python files); RepoPassport
+`validate` holds and `inspect` fails closed on `開始艙室.bat`. Live
+`verify` is not claimed: the alpha path is a dependency-free Linux
+sandbox, and this subject installs npm packages.
+
 ---
 
 ## Repo map
@@ -224,7 +250,7 @@ with those two meta repositories, that reconciles to all 34 public owner repos.
 | [`aurora`](https://github.com/taipei49314/aurora) | Python | Finds unnamed industries from evidence — deterministic, no LLM at runtime, no stock tips. |
 | [`FutureShow-pet`](https://github.com/taipei49314/FutureShow-pet) | Python | Personal fork of HKUDS/FutureShow: local desktop pet (Taiwan news + GitHub AI-repo tracker) on Ollama / Qwen. |
 | [`universe-explorer`](https://github.com/taipei49314/universe-explorer) | Python | Epistemically honest science knowledge system — separates known from unknown. |
-| [`cell-shift`](https://github.com/taipei49314/cell-shift) | TypeScript | CELL//SHIFT — deterministic 3D tissue simulation: change cell rules, watch tumor-like structure form. Explicitly not a biological model. No release. |
+| [`cell-shift`](https://github.com/taipei49314/cell-shift) | TypeScript | **Public subject, not flagship.** CELL//SHIFT — deterministic 3D tissue chamber. Maintenance-only. Host CI is green; spine `verify` is not claimed. Not biology. |
 | [`why-ledger`](https://github.com/taipei49314/why-ledger) | Docs | Why Ledger / 依據本 — justified sovereign decisions (WJSD). Documentation-first. |
 | [`editorial-doll-engineering-preview`](https://github.com/taipei49314/editorial-doll-engineering-preview) | TypeScript | Public M0–M3 engineering preview of a deterministic editorial styling engine. |
 | [`vibe-oracle`](https://github.com/taipei49314/vibe-oracle) | TypeScript | **Explicit anti-evidence foil.** Admits the theater; pure vibe, not evidence. |
@@ -282,6 +308,9 @@ This index repo is itself pre-release. Specifically:
 - `walkaround` and `charterlock` joined the map after the 2026-08-12
   reconciliation. They are pre-alpha admission cells, not later-stage
   verifiers.
+- `cell-shift` was already on the 2026-08-16 map as a local-first demo.
+  On 2026-08-17 it is classified as a **subject**: the spine measures it.
+  Pointing the spine at it does not make the spine finished.
 
 What you can rely on: every link above resolves to a real repo, every repo's
 README states its own status honestly, and the principles above are
@@ -327,6 +356,9 @@ handoff.
 
 If you are using Nelson's work, start with the `quickstart` in the repo that
 matches your target question. The audit table above tells you which one.
+If you want to see the first public subject the spine measures, open
+[`cell-shift`](https://github.com/taipei49314/cell-shift) — then come back
+here for the measurers.
 
 ---
 
@@ -361,6 +393,7 @@ grant of rights. Read each repo's `LICENSE` and README.
 | [`null-city`](https://github.com/taipei49314/null-city) | MIT |
 | [`NormShift`](https://github.com/taipei49314/NormShift) | Apache-2.0 |
 | [`constraint-deck`](https://github.com/taipei49314/constraint-deck) · [`branchback`](https://github.com/taipei49314/branchback) | MIT |
+| [`cell-shift`](https://github.com/taipei49314/cell-shift) | MIT |
 | Local-first tools | Mix of Apache-2.0 and MIT; `music-lab` has no `LICENSE` file. See each repo |
 
 Archived or private repos may differ. This table is a reconciliation, not a
