@@ -6,7 +6,7 @@
 
 [![Licenses: per repo](https://img.shields.io/badge/licenses-per%20repo-lightgrey.svg)](#license)
 [![Status: living index](https://img.shields.io/badge/status-living%20index-orange.svg)](#what-this-repo-is)
-[![Active indexed project repos: 31](https://img.shields.io/badge/active%20indexed%20project%20repos-31-blue.svg)](#repo-map)
+[![Active indexed project repos: 25](https://img.shields.io/badge/active%20indexed%20project%20repos-25-blue.svg)](#repo-map)
 
 This is not a portfolio. Each repo here earns its place by either (a) implementing
 a piece of the AI-safety-audit stack, (b) being the tool the audit stack
@@ -28,7 +28,7 @@ so that anyone auditing Nelson's work can navigate from the principles down to
 the evidence in one pass.
 
 Last reconciled against GitHub repository, archive, release, and CI metadata:
-**2026-08-17**.
+**2026-08-21**.
 
 The headline principle across everything here:
 
@@ -84,9 +84,9 @@ authority-preserving control plane plus artifact/execution shell that catalogs
 the twelve active cells below. It pins source and runtime candidates, imports
 exact artifacts, records native envelopes, and executes only separately
 admitted operations whose required boundary is implemented. EWB itself is not
-globally read-only. The NelsonCode integration is a deliberately read-only
-catalog adapter, but it is optional and outside the audit mainline. It carries
-no authority handoff. Exact bytes and digests move between cells only through
+globally read-only. An optional editor integration is a deliberately read-only
+catalog adapter, but it remains outside the audit mainline and carries no
+authority handoff. Exact bytes and digests move between cells only through
 separately admitted handoffs; registry presence alone does not perform a
 handoff. EWB does **not** certify a workload, reinterpret a native status, or
 synthesize an aggregate `PASS`.
@@ -200,6 +200,14 @@ organ set; trust-meter `100.0` is vacuous (no Python files); RepoPassport
 `verify` is not claimed: the alpha path is a dependency-free Linux
 sandbox, and this subject installs npm packages.
 
+### First domain-transfer case
+
+[`hgsoc-state-engine`](https://github.com/taipei49314/hgsoc-state-engine) is a
+separate domain-transfer case for evidence-gated naming and path admission in
+untreated HGSOC. It is not a medical device and makes no survival, treatment,
+or whole-body prediction. CELL//SHIFT is a separate visualization subject and
+is explicitly not a biomedical evidence source for this engine.
+
 ---
 
 ## Repo map
@@ -211,8 +219,9 @@ on each repo are authoritative; this map is secondary.
 [`taipei49314`](https://github.com/taipei49314) that are explicitly listed in
 this map and whose GitHub `isArchived` flag is false. The count excludes this
 `nelson-stack` index and the `taipei49314` profile repository. The map currently
-contains 31 active projects plus one archived historical prototype; together
-with those two meta repositories, that reconciles to all 34 public owner repos.
+contains 25 active projects. Together with the two meta repositories, that
+reconciles to all 27 public owner repositories. Private and archived
+repositories are intentionally excluded from this public map.
 
 ### Audit stack (the core)
 
@@ -231,24 +240,17 @@ with those two meta repositories, that reconciles to all 34 public owner repos.
 | [`smallestlie`](https://github.com/taipei49314/smallestlie) | Python | Authorized adversarial harness: smallest lie a repo still accepts. |
 | [`branchback`](https://github.com/taipei49314/branchback) | TypeScript | Local-first decision replay lab — belief-at-the-time vs knowledge-now. [`v2.0.0`](https://github.com/taipei49314/branchback/releases/tag/v2.0.0). |
 | [`constraint-deck`](https://github.com/taipei49314/constraint-deck) | Python | Session-first authorial constraint deck; measure first; contract over vibes. |
-| [`persona-consistency-checker`](https://github.com/taipei49314/persona-consistency-checker) | Python | **Archived historical prototype.** PersonaChain experiments for persona drift under adversarial prompts. |
 | [`null-city`](https://github.com/taipei49314/null-city) | TypeScript | Deterministic, partially observable crisis-response sandbox for agent eval. |
 | [`NormShift`](https://github.com/taipei49314/NormShift) | Python | Evidence-backed semantic diff for technical standards (M0 local HTML slice). |
+| [`hgsoc-state-engine`](https://github.com/taipei49314/hgsoc-state-engine) | Python | Domain-transfer case for evidence-gated HGSOC naming and path admission. Not a medical device; CELL//SHIFT is not its evidence source. |
 
 ### Local-first tools (the substrate)
 
 | Repo | Language | What it does |
 |---|---|---|
 | [`evidence-workbench`](https://github.com/taipei49314/evidence-workbench) | Rust | Authority-preserving control plane: exact pins, native envelopes, and fail-closed artifact transport. Not a verifier and not an aggregate judge. |
-| [`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) | TypeScript / Electron | Off-mainline personal AI coding preview; timeline as backbone; reversible sessions. External security audit remains **NO-GO** for untrusted use. |
-| [`md-brain`](https://github.com/taipei49314/md-brain) | Python | Model-independent continuity runtime for AI memory. |
-| [`github-radar`](https://github.com/taipei49314/github-radar) | Python | GitHub research with measured uncertainty; can submit hashed findings to Frontier Atlas. |
 | [`receiptradar`](https://github.com/taipei49314/receiptradar) | Rust | Local receipt → ledger CLI. No cloud, no account. |
-| [`nelson-release-studio`](https://github.com/taipei49314/nelson-release-studio) | Python | Music creation, asset management, and release workbench — Windows-first. |
-| [`music-lab`](https://github.com/taipei49314/music-lab) | Python | Deterministic local music toolkit; analysis first; no cloud account. |
-| [`tw-stock-lab`](https://github.com/taipei49314/tw-stock-lab) | Python | Active local TW stock research lab ([`v0.2.0`](https://github.com/taipei49314/tw-stock-lab/releases/tag/v0.2.0)). *Research simulation, not investment advice.* |
 | [`aurora`](https://github.com/taipei49314/aurora) | Python | Finds unnamed industries from evidence — deterministic, no LLM at runtime, no stock tips. |
-| [`FutureShow-pet`](https://github.com/taipei49314/FutureShow-pet) | Python | Personal fork of HKUDS/FutureShow: local desktop pet (Taiwan news + GitHub AI-repo tracker) on Ollama / Qwen. |
 | [`universe-explorer`](https://github.com/taipei49314/universe-explorer) | Python | Epistemically honest science knowledge system — separates known from unknown. |
 | [`cell-shift`](https://github.com/taipei49314/cell-shift) | TypeScript | **Public subject, not flagship.** CELL//SHIFT — deterministic 3D tissue chamber. Maintenance-only. Host CI is green; spine `verify` is not claimed. Not biology. |
 | [`why-ledger`](https://github.com/taipei49314/why-ledger) | Docs | Why Ledger / 依據本 — justified sovereign decisions (WJSD). Documentation-first. |
@@ -295,22 +297,26 @@ This index repo is itself pre-release. Specifically:
 - "Primary repo" / "supporting repo" in the audit table reflects what is
   shipped today, not what is intended. Future repos may swap the
   responsibilities.
-- No repo here has been independently audited by a third party, except where
-  its own README states otherwise
-  ([`nelsoncode-ide`](https://github.com/taipei49314/nelsoncode-ide) v0.2.0
-  has an external audit with a NO-GO verdict, which is kept on the README).
+- No public repo here has been independently audited by a third party, except
+  where its own README explicitly states otherwise.
 - External adoption is still minimal and is not used as a quality claim. Stars,
   downloads, and README assertions do not replace reproducible evidence.
 - Some public releases are marked prerelease and therefore have no GitHub
-  “Latest” badge even though a release tag exists (`md-brain`, `github-radar`,
-  `FutureShow-pet`, `null-city`, `tomorrowci`, `tomorrowci-lab`
-  `v0.2.0-alpha.1`). That is intentional honesty, not absence.
+  “Latest” badge even though a release tag exists (`NormShift`, `null-city`,
+  `tomorrowci`, and `tomorrowci-lab` `v0.2.0-alpha.1`). That is intentional
+  honesty, not absence.
 - `walkaround` and `charterlock` joined the map after the 2026-08-12
   reconciliation. They are pre-alpha admission cells, not later-stage
   verifiers.
 - `cell-shift` was already on the 2026-08-16 map as a local-first demo.
   On 2026-08-17 it is classified as a **subject**: the spine measures it.
   Pointing the spine at it does not make the spine finished.
+- `hgsoc-state-engine` was created after the 2026-08-17 reconciliation. It is
+  now indexed as a domain-transfer case, not as a second flagship or as
+  biomedical evidence for CELL//SHIFT.
+- Private and archived repositories are deliberately absent from this public
+  map. A visibility change must remove their public links before this index is
+  considered reconciled.
 
 What you can rely on: every link above resolves to a real repo, every repo's
 README states its own status honestly, and the principles above are
@@ -340,8 +346,8 @@ If you are auditing Nelson's work, the recommended reading order is:
    verifier-side model (state before chat, reality as final oracle).
 6. [`greenwash`](https://github.com/taipei49314/greenwash) — for a concrete
    worked example of how a single detected failure is reported. GitHub
-   Latest is `v0.1.42`; at the 2026-08-16 reconciliation, `main` was the
-   release merge commit, content-identical to that tag.
+   Latest is `v0.1.42`; `main` identifies as `v0.1.43` and is ahead after the
+   2026-08-19 audit round.
 7. [`tomorrowci`](https://github.com/taipei49314/tomorrowci) ·
    [`tomorrowci-lab`](https://github.com/taipei49314/tomorrowci-lab) — for
    how time-horizon forecasts are produced. Neither repo advertises a
@@ -349,10 +355,9 @@ If you are auditing Nelson's work, the recommended reading order is:
    prerelease-marked evidence, and the newest lab prerelease is
    `v0.2.0-alpha.1`, still candidate-only.
 
-NelsonCode is deliberately not part of this audit reading order. It remains an
-active indexed project under local-first tools as an off-mainline personal
-preview; its optional EWB adapter is read-only catalog access, not an authority
-handoff.
+Private internal tools are deliberately outside this public reading order and
+are not counted or linked by this index. Optional catalog integrations do not
+transfer authority into EWB.
 
 If you are using Nelson's work, start with the `quickstart` in the repo that
 matches your target question. The audit table above tells you which one.
@@ -394,7 +399,7 @@ grant of rights. Read each repo's `LICENSE` and README.
 | [`NormShift`](https://github.com/taipei49314/NormShift) | Apache-2.0 |
 | [`constraint-deck`](https://github.com/taipei49314/constraint-deck) · [`branchback`](https://github.com/taipei49314/branchback) | MIT |
 | [`cell-shift`](https://github.com/taipei49314/cell-shift) | MIT |
-| Local-first tools | Mix of Apache-2.0 and MIT; `music-lab` has no `LICENSE` file. See each repo |
+| Public local-first tools | Mix of Apache-2.0, MIT, and repository-specific terms. See each repo |
 
 Archived or private repos may differ. This table is a reconciliation, not a
 license grant.
