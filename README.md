@@ -250,7 +250,7 @@ repositories are intentionally excluded from this public map.
 |---|---|---|
 | [`evidence-workbench`](https://github.com/taipei49314/evidence-workbench) | Rust | Authority-preserving control plane: exact pins, native envelopes, and fail-closed artifact transport. Not a verifier and not an aggregate judge. |
 | [`receiptradar`](https://github.com/taipei49314/receiptradar) | Rust | Local receipt → ledger CLI. No cloud, no account. |
-| [`aurora`](https://github.com/taipei49314/aurora) | Python | Finds unnamed industries from evidence — deterministic, no LLM at runtime, no stock tips. |
+| [`aurora`](https://github.com/taipei49314/aurora) | Python | Finds unnamed industries from evidence — deterministic, no LLM at runtime, no stock tips. Also runs as a module of a **private** claim ledger and a private note vault, through opt-in `--atlas` / `--brain`. Both are off by default, neither is published, and nothing on this page depends on them. |
 | [`universe-explorer`](https://github.com/taipei49314/universe-explorer) | Python | Epistemically honest science knowledge system — separates known from unknown. |
 | [`cell-shift`](https://github.com/taipei49314/cell-shift) | TypeScript | **Public subject, not flagship.** CELL//SHIFT — deterministic 3D tissue chamber. Maintenance-only. Host CI is green; spine `verify` is not claimed. Not biology. |
 | [`why-ledger`](https://github.com/taipei49314/why-ledger) | Docs | Why Ledger / 依據本 — justified sovereign decisions (WJSD). Documentation-first. |
